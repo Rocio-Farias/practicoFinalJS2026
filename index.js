@@ -1,6 +1,7 @@
 // Variables globales y configuración básica
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+const sonido = new Audio("salto.mp3"); // Asegúrate de tener este archivo de sonido en la ruta indicada
 
 let gameSpeed = 5;           // Velocidad constante (los cambios se harán en la modificación)
 let gravity = 0.5;           // Fuerza de gravedad
@@ -111,7 +112,7 @@ document.addEventListener("keydown", function(e) {
     if (e.code === "Space" && !dino.isJumping && !gameOver) {
         dino.isJumping = true;
         dino.vy = -10;  // Velocidad inicial de salto
-        // Aquí se podrá agregar el efecto de sonido del salto en la modificación
+        sonido.play(); // Aquí se podrá agregar el efecto de sonido del salto en la modificación
         e.preventDefault(); // Evita el scroll de la página
     }
 });
